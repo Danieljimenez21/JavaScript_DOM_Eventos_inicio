@@ -31,4 +31,26 @@ const navegacion = document.querySelector('.navegacion');
 navegacion.appendChild(nuevoEnlace);
 
 
-console.log(nuevoEnlace)
+// console.log(nuevoEnlace);
+
+console.log(1);
+
+window.addEventListener('load', x);
+
+window.onload = function(){
+    console.log(3)
+}
+
+document.addEventListener('DOMContentLoaded', function(){//solo se espera que se descarge el HTML, peor no el CSS o imagenes
+    console.log(4);
+})
+
+console.log(5);
+
+function x() {
+    console.log(3);
+}
+
+window.onscroll = function() {
+    console.log('scrolling...')
+}
