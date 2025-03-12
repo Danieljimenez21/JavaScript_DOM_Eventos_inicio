@@ -51,6 +51,16 @@ function x() {
     console.log(3);
 }
 
-window.onscroll = function() {
-    console.log('scrolling...')
+window.onscroll = function(e) {
+    console.log(e);
 }
+
+//seleccionar elementos y asociarles un evanto 
+const btnEnviar = document.querySelector('.boton--primario');
+btnEnviar.addEventListener('click', function(e){
+    console.log(e);
+    e.preventDefault();
+    console.log('Enviando formulario..')
+})
+
+//validar un formulario
