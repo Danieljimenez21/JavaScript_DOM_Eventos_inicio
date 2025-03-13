@@ -33,34 +33,57 @@ navegacion.appendChild(nuevoEnlace);
 
 // console.log(nuevoEnlace);
 
-console.log(1);
+// console.log(1);
 
-window.addEventListener('load', x);
+// window.addEventListener('load', x);
 
-window.onload = function(){
-    console.log(3)
-}
+// window.onload = function(){
+//     console.log(3)
+// }
 
-document.addEventListener('DOMContentLoaded', function(){//solo se espera que se descarge el HTML, peor no el CSS o imagenes
-    console.log(4);
-})
+// document.addEventListener('DOMContentLoaded', function(){//solo se espera que se descarge el HTML, peor no el CSS o imagenes
+//     console.log(4);
+// })
 
-console.log(5);
+// console.log(5);
 
-function x() {
-    console.log(3);
-}
+// function x() {
+//     console.log(3);
+// }
 
-window.onscroll = function(e) {
-    console.log(e);
-}
+// window.onscroll = function(e) {
+//     console.log(e);
+// }
 
 //seleccionar elementos y asociarles un evanto 
 const btnEnviar = document.querySelector('.boton--primario');
 btnEnviar.addEventListener('click', function(e){
     console.log(e);
     e.preventDefault();
+
+    //validar un formulario
     console.log('Enviando formulario..')
 })
 
-//validar un formulario
+
+//eventos de los inputs y textarea
+const datos = {
+    nombre: ' ',
+    email: ' ',
+    mensaje: ' '
+}
+
+const nombreInput = document.querySelector('#nombre');
+const email = document.querySelector('#email');
+const Mensaje = document.querySelector('#mensaje');
+
+nombreInput.addEventListener('input',leerTexto)
+email.addEventListener('input', leerTexto)
+mensaje.addEventListener('input', leerTexto)
+
+function leerTexto(e) {
+    // console.log(e.target.value);
+
+    datos[e.target.id] = e.target.value;
+    console.log(datos);
+}
