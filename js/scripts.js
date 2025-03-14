@@ -56,14 +56,14 @@ navegacion.appendChild(nuevoEnlace);
 // }
 
 //seleccionar elementos y asociarles un evanto 
-const btnEnviar = document.querySelector('.boton--primario');
-btnEnviar.addEventListener('click', function(e){
-    console.log(e);
-    e.preventDefault();
+// const btnEnviar = document.querySelector('.boton--primario');
+// btnEnviar.addEventListener('click', function(e){
+//     console.log(e);
+//     e.preventDefault();
 
-    //validar un formulario
-    console.log('Enviando formulario..')
-})
+//     //validar un formulario
+//     console.log('Enviando formulario')
+// })
 
 
 //eventos de los inputs y textarea
@@ -76,14 +76,25 @@ const datos = {
 const nombreInput = document.querySelector('#nombre');
 const email = document.querySelector('#email');
 const Mensaje = document.querySelector('#mensaje');
+const formulario = document.querySelector('.formulario');
 
 nombreInput.addEventListener('input',leerTexto)
 email.addEventListener('input', leerTexto)
-mensaje.addEventListener('input', leerTexto)
+Mensajeensaje.addEventListener('input', leerTexto)
+//eventos de submit
+formulario.addEventListener('submit', function(evento){
+    evento.preventDefault();
+
+    //validar el formulario
+
+    //Enviar el formulario
+
+});
 
 function leerTexto(e) {
     // console.log(e.target.value);
-
     datos[e.target.id] = e.target.value;
     console.log(datos);
 }
+
+
