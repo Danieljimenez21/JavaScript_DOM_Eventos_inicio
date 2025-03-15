@@ -68,33 +68,54 @@ navegacion.appendChild(nuevoEnlace);
 
 //eventos de los inputs y textarea
 const datos = {
-    nombre: ' ',
-    email: ' ',
-    mensaje: ' '
+    nombre: '',
+    email: '',
+    mensaje: ''
 }
 
 const nombreInput = document.querySelector('#nombre');
 const email = document.querySelector('#email');
-const Mensaje = document.querySelector('#mensaje');
+const mensaje = document.querySelector('#mensaje');
 const formulario = document.querySelector('.formulario');
 
 nombreInput.addEventListener('input',leerTexto)
 email.addEventListener('input', leerTexto)
-Mensajeensaje.addEventListener('input', leerTexto)
+mensaje.addEventListener('input', leerTexto)
 //eventos de submit
 formulario.addEventListener('submit', function(evento){
     evento.preventDefault();
-
     //validar el formulario
+    const {nombre, email, mensaje} = datos;
 
-    //Enviar el formulario
+        if(nombre === "" || email === "" || mensaje === "") {
+            mostrarAlerta('Todos los campos son obligatorios', true);
+            return; //corta la ejecucion del codigo
+        } 
 
+        //crear la alerta de enviar correctamente
+        mostrarAlerta("Mensaje enviado correctamente");
 });
 
 function leerTexto(e) {
     // console.log(e.target.value);
     datos[e.target.id] = e.target.value;
-    console.log(datos);
+    // console.log(datos);
 }
 
 
+function mostrarAlerta(mensaje, error = null){
+    const alerta = document.createElement("P");
+    alerta.textContent = mensaje;
+
+    if(error) {
+        alerta.classList.add('error');
+    } else {
+        alerta.classList.add('correcto')
+    }
+    formulario.appendChild(alerta);
+
+     //desaparezca despues de 5 segundos
+     setTimeout(() => {
+        alerta.remove();
+    }, 5000);
+}
